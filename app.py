@@ -1,11 +1,12 @@
 from flask import Flask
+from flask_restful import Api
+from Resource.User import UserRegister
 
 app = Flask(__name__)
+api = Api(app)
 
 
-@app.route('/')
-def home():
-    return "Hello World"
+api.add_resource(UserRegister, '/register')
 
 
-app.run()
+app.run(debug=True)
